@@ -1,0 +1,8 @@
+# Introspecto dependencies manual addition. TODO: Add it with with some kind of dependency management
+*introspecto*
+
+.ycm*
+
+*.swp
+
+texto
