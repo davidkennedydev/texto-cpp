@@ -1,15 +1,15 @@
-all: texto
+all: texto_sample
 
-texto: src/main.cpp src/texto.hpp .introspecto_generated.h
-	g++ -std=c++23 $< -o $@
+texto_sample: sample/main.cpp include/texto.h .introspecto_generated.h
+	g++ -std=c++2b $< -I./include -o $@
 
 clean:
-	-rm texto .*_generated.h
+	-rm -f texto_sample .*_generated.h
 
-.introspecto_generated.h: bin/introspecto ./src/main.cpp
+.introspecto_generated.h: bin/introspecto ./sample/main.cpp
 	-./$^ 2> $@.log
 
-test: texto
+test: texto_sample
 	./$<
 
 .PHONY = test clean 
